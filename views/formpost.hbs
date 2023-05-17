@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 bucket push</title>
+    <style>
+        .div-class {
+            margin: 0 auto;
+            width: 50%;
+            padding: 10px;
+        }
+    
+        .label-file {
+            font-size: 20px;
+        }
+    
+        input[type="file"] {
+            padding: 10px;
+            font-size: 20px;
+        }
+    
+        input[type="submit"] {
+            padding: 10px;
+            font-size: 20px;
+        }
+        .image-table {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-evenly;
+            margin-top: 20px;
+        }
+
+        .image-table img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div-class">
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="file" class="label-file">Select files to upload:</label><br>
+            <input type="file" name="filess" id="file" multiple><br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+
+    <div class="image-table">
+        
+        {{#each images}}
+            {{!-- //if index position is not  0 then do img url --}}
+            {{#if @index}}
+                <img src="{{url}}" alt="image">
+            {{/if}}
+        {{/each}}
+        
+    </div>
+</body>
+
+</html>
